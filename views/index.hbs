@@ -1,27 +1,54 @@
-<header>
+<header class="site-header">
+  <p class="eyebrow">ANIME DATABASE / LIVE DATA</p>
   <h1 class="page-title">{{h1}}</h1>
-  <p class="subtitle">Explore Top Anime from Jikan API (Live Data)</p>
+  <p class="subtitle">Explore, compare, and discover anime powered by AniList.</p>
 
   <div class="controls">
-    <select id="filter-type">
-      <option value="tv">TV</option>
-      <option value="movie">Movie</option>
-      <option value="special">Special</option>
+    <select id="filter-type" aria-label="Filter anime type">
+      <option value="TV">TV</option>
+      <option value="MOVIE">Movie</option>
+      <option value="SPECIAL">Special</option>
+      <option value="ONA">ONA</option>
+      <option value="OVA">OVA</option>
     </select>
 
-    <select id="sort-type">
+    <select id="sort-type" aria-label="Sort anime">
       <option value="score">Sort by Score</option>
-      <option value="rank">Sort by Rank</option>
+      <option value="popularity">Sort by Popularity</option>
       <option value="title">Sort by Title</option>
     </select>
 
-    <button id="refresh">Refresh</button>
+    <button id="refresh" class="control-button" type="button">
+      ↻ Refresh
+    </button>
+  </div>
+
+  <div class="view-toolbar">
+    <span class="view-label">DISPLAY MODE</span>
+    <div class="view-switch">
+      <button id="grid-view" class="view-button active" type="button"
+              aria-pressed="true" title="Grid view (G)">
+        ▦ Grid <kbd>G</kbd>
+      </button>
+      <button id="list-view" class="view-button" type="button"
+              aria-pressed="false" title="List view (L)">
+        ☰ List <kbd>L</kbd>
+      </button>
+    </div>
   </div>
 </header>
 
 <main>
-  <div id="slideshow_container" class="slider">
+  <div class="results-heading">
+    <span class="results-indicator"></span>
+    <span id="results-label">ANIME DATABASE</span>
+  </div>
+
+  <div id="slideshow_container" class="anime-container grid-view">
     <div class="loading">Loading anime data...</div>
   </div>
-  <button id="loadMore" class="hidden">Load More</button>
+
+  <button id="loadMore" class="load-more hidden" type="button">
+    Load More <span>↓</span>
+  </button>
 </main>

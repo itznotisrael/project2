@@ -83,8 +83,12 @@ function onError(error) {
 
 function onListening() {
   var addr = server.address();
-  var bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
-  debug('Listening on ' + bind);
+
+  if (typeof addr === 'string') {
+    console.log('Server successfully started on pipe ' + addr);
+  } else {
+    console.log('Server successfully started on port ' + addr.port);
+  }
+
+  debug('Listening on ' + addr.port);
 }
